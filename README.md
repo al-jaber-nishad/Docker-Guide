@@ -41,54 +41,54 @@ This document provides a list of frequently used Docker commands to help you wor
 
 ## Advanced Commands
 
-8. **Run a Container in Detached Mode (Background):**
+1. **Run a Container in Detached Mode (Background):**
    ```bash
    docker run -d <image_name>
    ```
 
-9. **Map Container Port to Host Port:**
+2. **Map Container Port to Host Port:**
    ```bash
    docker run -p <host_port>:<container_port> <image_name>
    ```
 
-10. **Run Interactive Shell in a Container:**
+3. **Run Interactive Shell in a Container:**
     ```bash
     docker exec -it <container_id> /bin/bash
     ```
 
-11. **View Container Logs:**
+4. **View Container Logs:**
     ```bash
     docker logs <container_id>
     ```
 
-12. **Inspect Container Details:**
+5. **Inspect Container Details:**
     ```bash
     docker inspect <container_id>
     ```
 
-13. **Build a Docker Image from a Dockerfile:**
+6. **Build a Docker Image from a Dockerfile:**
     ```bash
     docker build -t <image_name> <path_to_Dockerfile_directory>
     ```
 
-14. **Push Docker Image to Registry (e.g., Docker Hub):**
+7. **Push Docker Image to Registry (e.g., Docker Hub):**
     ```bash
     docker push <image_name>
     ```
 
-15. **Pull Docker Image from Registry:**
+8. **Pull Docker Image from Registry:**
     ```bash
     docker pull <image_name>
     ```
 
 ## Cleaning Up
 
-16. **Remove All Stopped Containers:**
+9. **Remove All Stopped Containers:**
     ```bash
     docker container prune
     ```
 
-17. **Remove All Unused Images:**
+10. **Remove All Unused Images:**
     ```bash
     docker image prune
     ```
