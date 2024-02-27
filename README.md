@@ -39,6 +39,11 @@ This document provides a list of frequently used Docker commands to help you wor
    docker rmi <image_name>
    ```
 
+8. **Retag an image**
+   ```bash
+   docker tag <image_name:previous_tag> <image_name:new_tag>
+   ```
+
 ## Advanced Commands
 
 1. **Run a Container in Detached Mode (Background):**
@@ -59,6 +64,9 @@ This document provides a list of frequently used Docker commands to help you wor
 4. **View Container Logs:**
     ```bash
     docker logs <container_id>
+    ```
+    ```
+    docker logs -f <container_id>
     ```
 
 5. **Inspect Container Details:**
