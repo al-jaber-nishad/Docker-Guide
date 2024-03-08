@@ -45,6 +45,32 @@ This document provides a list of frequently used Docker commands to help you wor
    ```
 
 ## Advanced Commands
+### Volume
+ Docker has two options to persist files on the host machine.
+  * Volumes
+  * Bind Mounts
+
+  ** List all volumes with 
+  ```
+    docker volume ls
+  ```
+  1.1 Using the -v flag:
+  ```
+    docker run -it -p 80:80 -v my_app:/server2 nginx
+  ``` 
+  1.2 Using the --mount flag
+
+  ```
+  docker run -it -p 80:80 --mount type=volume,source=my_app,destination=/server3 nginx
+  ```
+
+  2.1 Mounting the local storage with the docker volume.
+
+  ```
+  docker run --rm -it -p 80:80 -v .:/new_server nginx
+  ```
+
+### Up and Running
 
 1. **Run a Container in Detached Mode (Background):**
    ```bash
@@ -105,5 +131,31 @@ This document provides a list of frequently used Docker commands to help you wor
     ```bash
     docker system prune -a
     ```
+
+
+## Dockerfile
+### Basic Dockerfile for a flask application
+
+```
+FROM python:slim
+
+COPY ./requirements.txt /temp/
+
+RUN cd /temp && pip install -r ./requirements.txt
+
+RUN mkdir -p app/
+
+COPY . /app
+
+WORKDIR /app
+
+CMD ["python", "app.py"]
+```
+
+### Dockerfile Instructions
+* RUN: To run command inside image.
+* ARG: To set vaiable dynamically.
+   - ```docker run --build-arg <VARIABLE=value> <image_name>```
+* ENV: Set environment variable inside the image that will reside in the related container as well.
 
 Remember to replace `<image_name>`, `<container_id>`, `<host_port>`, and `<container_port>` with actual values as needed.
